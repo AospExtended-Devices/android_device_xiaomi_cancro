@@ -48,11 +48,7 @@ camera_module_t HAL_MODULE_INFO_SYM = {
     set_callbacks: NULL,
     get_vendor_tag_ops: NULL,
     open_legacy: NULL,
-<<<<<<< HEAD
     set_torch_mode: NULL,
     init: NULL,
-#endif
-=======
->>>>>>> 25bc109... QCamera2: Drop usage of USE_KK_CODE
     reserved:  {0}
 };
