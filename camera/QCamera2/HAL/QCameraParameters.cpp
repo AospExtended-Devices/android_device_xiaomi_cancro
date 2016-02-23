@@ -6276,9 +6276,8 @@ int QCameraParameters::getAutoFlickerMode()
 int32_t QCameraParameters::setAntibanding(const char *antiBandingStr)
 {
     if (antiBandingStr != NULL) {
-        int32_t value = lookupAttr(ANTIBANDING_MODES_MAP,
-                                   sizeof(ANTIBANDING_MODES_MAP)/sizeof(QCameraMap),
-                                   antiBandingStr);
+	int32_t value = lookupAttr(ANTIBANDING_MODES_MAP, PARAM_MAP_SIZE(ANTIBANDING_MODES_MAP),
+							antiBandingStr);
         if (value == CAM_ANTIBANDING_MODE_OFF) {
             /* Never disable antibanding */
             return NO_ERROR;
@@ -9979,3 +9978,4 @@ uint8_t QCameraParameters::getNumOfExtraBuffersForPreview()
 }
 
 }; // namespace qcamera
+
