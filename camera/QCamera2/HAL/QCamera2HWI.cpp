@@ -1395,7 +1395,8 @@ int QCamera2HardwareInterface::closeCamera()
     return rc;
 }
 
-static cam_dimension_t new_pic_sizes_cam0[] = {
+#define CAM0_PIC_TBL_SIZE 19
+static cam_dimension_t new_pic_sizes_cam0[CAM0_PIC_TBL_SIZE] = {
     {4208, 3120},
     {4160, 3120},
     {4160, 2340},
@@ -1417,7 +1418,8 @@ static cam_dimension_t new_pic_sizes_cam0[] = {
     {320, 240}
 };
 
-static cam_dimension_t new_vid_sizes_cam0[] = {
+#define CAM0_VID_TBL_SIZE 9
+static cam_dimension_t new_vid_sizes_cam0[CAM0_VID_TBL_SIZE] = {
     {4096, 2160},
     {3840, 2160},
     {2560, 1440},
@@ -1429,7 +1431,8 @@ static cam_dimension_t new_vid_sizes_cam0[] = {
     {320, 240}
 };
 
-static cam_dimension_t new_prvw_sizes_cam0[] = {
+#define CAM0_PRVW_TBL_SIZE 9
+static cam_dimension_t new_prvw_sizes_cam0[CAM0_PRVW_TBL_SIZE] = {
     {4096, 2160},
     {3840, 2160},
     {2560, 1440},
@@ -1441,7 +1444,8 @@ static cam_dimension_t new_prvw_sizes_cam0[] = {
     {320, 240}
 };
 
-static cam_dimension_t new_vid_sizes_cam1[] = {
+#define CAM1_VID_TBL_SIZE 8
+static cam_dimension_t new_vid_sizes_cam1[CAM1_VID_TBL_SIZE] = {
     {2560, 1440},
     {1920, 1080},
     {1280, 720},
@@ -1452,7 +1456,8 @@ static cam_dimension_t new_vid_sizes_cam1[] = {
     {320, 240}
 };
 
-static cam_dimension_t new_prvw_sizes_cam1[] = {
+#define CAM1_PRVW_TBL_SIZE 8
+static cam_dimension_t new_prvw_sizes_cam1[CAM1_PRVW_TBL_SIZE] = {
     {2560, 1440},
     {1920, 1080},
     {1440, 1080},
@@ -1584,7 +1589,8 @@ map_failed:
     capabilityHeap->deallocate();
     delete capabilityHeap;
 allocate_failed:
-    return rc;
+return rc;
+
 }
 
 /*===========================================================================

@@ -4829,57 +4829,6 @@ int32_t QCameraParameters::init(cam_capability_t *capabilities,
                                 QCameraTorchInterface *torch)
 {
     int32_t rc = NO_ERROR;
-    int i, x;
-
-    // Inject modified video/preview size tables
-    if (capabilities->position == CAM_POSITION_BACK) {
-        for (i = 0; i < CAM0_PIC_TBL_SIZE; i++)
-            capabilities->picture_sizes_tbl[i] = new_pic_sizes_cam0[i];
-        capabilities->picture_sizes_tbl_cnt = CAM0_PIC_TBL_SIZE;
-
-        for (i = 0; i < CAM0_VID_TBL_SIZE; i++)
-            capabilities->video_sizes_tbl[i] = new_vid_sizes_cam0[i];
-        capabilities->video_sizes_tbl_cnt = CAM0_VID_TBL_SIZE;
-
-        for (i = 0; i < CAM0_VID_TBL_SIZE; i++)
-            capabilities->livesnapshot_sizes_tbl[i] = new_vid_sizes_cam0[i];
-        capabilities->livesnapshot_sizes_tbl_cnt = CAM0_VID_TBL_SIZE;
-
-        for (i = 0; i < CAM0_PRVW_TBL_SIZE; i++)
-            capabilities->preview_sizes_tbl[i] = new_prvw_sizes_cam0[i];
-        capabilities->preview_sizes_tbl_cnt = CAM0_PRVW_TBL_SIZE;
-
-        // Add 90FPS HFR mode up to 720p
-        x = CAM_HFR_MODE_90FPS;
-        capabilities->hfr_tbl[x].mode = (cam_hfr_mode_t)x;
-        capabilities->hfr_tbl[x].dim = (cam_dimension_t){1280, 720};
-        capabilities->hfr_tbl[x].frame_skip = 0;
-        capabilities->hfr_tbl[x].livesnapshot_sizes_tbl_cnt =
-                                        capabilities->hfr_tbl[CAM_HFR_MODE_120FPS].livesnapshot_sizes_tbl_cnt;
-        for (i = 0; i < capabilities->hfr_tbl[x].livesnapshot_sizes_tbl_cnt; i++)
-            capabilities->hfr_tbl[x].livesnapshot_sizes_tbl[i] =
-                                        capabilities->hfr_tbl[CAM_HFR_MODE_60FPS].livesnapshot_sizes_tbl[i];
-        capabilities->hfr_tbl_cnt = 3;
-    } else if (capabilities->position == CAM_POSITION_FRONT) {
-        for (i = 0; i < CAM1_VID_TBL_SIZE; i++)
-            capabilities->video_sizes_tbl[i] = new_vid_sizes_cam1[i];
-        capabilities->video_sizes_tbl_cnt = CAM1_VID_TBL_SIZE;
-
-        for (i = 0; i < CAM1_PRVW_TBL_SIZE; i++)
-            capabilities->preview_sizes_tbl[i] = new_prvw_sizes_cam1[i];
-        capabilities->preview_sizes_tbl_cnt = CAM1_PRVW_TBL_SIZE;
-
-        for (i = 0; i < CAM1_VID_TBL_SIZE; i++)
-            capabilities->livesnapshot_sizes_tbl[i] = new_vid_sizes_cam1[i];
-        capabilities->livesnapshot_sizes_tbl_cnt = CAM1_VID_TBL_SIZE;
-    }
-
-    // For CTS
-    capabilities->fps_ranges_tbl_cnt = 2;
-    capabilities->fps_ranges_tbl[1].min_fps = 30.0f;
-    capabilities->fps_ranges_tbl[1].max_fps = 30.0f;
-    capabilities->fps_ranges_tbl[1].video_min_fps = 30.0f;
-    capabilities->fps_ranges_tbl[1].video_max_fps = 30.0f;
 
     m_pCapability = capabilities;
     m_pCamOpsTbl = mmOps;
