@@ -4305,7 +4305,7 @@ int32_t QCameraParameters::initDefaultParameters()
     set(KEY_QC_RAW_PICUTRE_SIZE, raw_size_str);
 
     //set default jpeg quality and thumbnail quality
-    set(KEY_JPEG_QUALITY, 85);
+    set(KEY_JPEG_QUALITY, 95);
     set(KEY_JPEG_THUMBNAIL_QUALITY, 85);
 
     // Set FPS ranges
@@ -8099,7 +8099,7 @@ uint8_t QCameraParameters::getBurstNum()
  *==========================================================================*/
 uint32_t QCameraParameters::getJpegQuality()
 {
-    return 100;
+    return 95;
 }
 
 
