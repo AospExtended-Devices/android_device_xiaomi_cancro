@@ -4524,13 +4524,15 @@ int32_t QCameraParameters::initDefaultParameters()
     setHighFrameRate(CAM_HFR_MODE_OFF);
 
     // Set Focus algorithms
-    String8 focusAlgoValues = createValuesString(
-            m_pCapability->supported_focus_algos,
-            m_pCapability->supported_focus_algos_cnt,
-            FOCUS_ALGO_MAP,
-            PARAM_MAP_SIZE(FOCUS_ALGO_MAP));
-    set(KEY_QC_SUPPORTED_FOCUS_ALGOS, focusAlgoValues);
-    setSelectableZoneAf(FOCUS_ALGO_AUTO);
+	if (m_pCapability->position == CAM_POSITION_BACK) {
+		String8 focusAlgoValues = createValuesString(
+				m_pCapability->supported_focus_algos,
+				m_pCapability->supported_focus_algos_cnt,
+				FOCUS_ALGO_MAP,
+				PARAM_MAP_SIZE(FOCUS_ALGO_MAP));
+		set(KEY_QC_SUPPORTED_FOCUS_ALGOS, focusAlgoValues);
+		setSelectableZoneAf(FOCUS_ALGO_AUTO);
+	}
 
     // Set Zoom Ratios
     if (m_pCapability->zoom_supported > 0) {
