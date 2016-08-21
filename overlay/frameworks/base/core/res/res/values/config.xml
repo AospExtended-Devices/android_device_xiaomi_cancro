@@ -83,15 +83,23 @@
 
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
-        <item>10</item>
-        <item>64</item>
-        <item>140</item>
-        <item>350</item>
-        <item>600</item>
-        <item>1000</item>
-        <item>1600</item>
+        <item>1</item>		<!-- pitch black -->
+        <item>5</item>
+	<item>10</item>		<!-- dark indoor -->
+	<item>15</item>
+        <item>25</item>		<!-- twilight -->
+        <item>50</item>		<!-- dim indoor -->
+        <item>100</item>	<!-- home -->
+        <item>200</item>
+	<item>300</item>    	<!-- office -->
+	<item>400</item>
+        <item>500</item>	<!-- sunrise -->
+	<item>750</item>
+        <item>1000</item>	<!-- overcast -->
+        <item>2000</item>
         <item>3000</item>
-        <item>10000</item>
+        <item>5000</item>
+        <item>10000</item>	<!-- daylight -->
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
@@ -99,16 +107,24 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>13</item>   <!-- 0-1 -->
-        <item>26</item>   <!-- 1-4 -->
-        <item>73</item>   <!-- 4-40 -->
-        <item>88</item>   <!-- 40-350 -->
-        <item>130</item>  <!-- 350-600 -->
-        <item>167</item>  <!-- 600-1000 -->
-        <item>204</item>  <!-- 1000-1600 -->
-        <item>240</item>  <!-- 1600-3000 -->
-        <item>254</item>  <!-- 3000-10000 -->
-        <item>255</item>  <!-- 10000+ -->
+        <item>5</item>    <!-- 0-1 -->
+        <item>8</item>    <!-- 1-5 -->
+        <item>10</item>   <!-- 5-10 -->
+        <item>12</item>   <!-- 10-15 -->
+        <item>17</item>   <!-- 15-25 -->
+        <item>29</item>   <!-- 25-50 -->
+        <item>35</item>   <!-- 50-100 -->
+        <item>47</item>   <!-- 100-200 -->
+        <item>75</item>   <!-- 200-300 -->
+	<item>95</item>	  <!-- 300-400 -->
+        <item>114</item>  <!-- 400-500 -->
+        <item>130</item>  <!-- 500-750 -->
+        <item>152</item>  <!-- 750-1000 -->
+        <item>175</item>  <!-- 1000-2000 -->
+	<item>200</item>  <!-- 2000-3000 -->
+	<item>215</item>  <!-- 3000-5000 -->
+	<item>235</item>  <!-- 5000-10000 -->
+	<item>255</item>  <!-- 10000+-->
     </integer-array>
 
     <!-- Array of output values for button backlight corresponding to the LUX values
