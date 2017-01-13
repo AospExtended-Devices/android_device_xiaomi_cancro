@@ -18,7 +18,7 @@
 
 RAW_ID=`cat /sys/devices/system/soc/soc0/raw_id`
 
-if [ $RAW_ID == 1974 ] || [ $RAW_ID == 1972 ]; then
+if [ $RAW_ID == 1974 ] || [ $RAW_ID == 1973 ] || [ $RAW_ID == 1972 ]; then
     # Replace manifests
     rm -rf /system/vendor/manifest.xml
     mv /system/vendor/manifest_mi4.xml /system/vendor/manifest.xml
