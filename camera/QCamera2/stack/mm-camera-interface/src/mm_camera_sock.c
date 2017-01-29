@@ -71,23 +71,10 @@ int mm_camera_socket_create(int cam_id, mm_camera_sock_type_t sock_type)
     }
 
     memset(&sock_addr, 0, sizeof(sock_addr));
-<<<<<<< HEAD
     sock_addr.addr_un.sun_family = AF_UNIX;
-    snprintf(sock_addr.addr_un.sun_path, UNIX_PATH_MAX,
-#ifdef USE_KK_CODE
-        "/data/cam_socket%d",
-#else
-        "/data/misc/camera/cam_socket%d",
-#endif
-        cam_id);
+    snprintf(sock_addr.addr_un.sun_path, UNIX_PATH_MAX, "/data/misc/camera/cam_socket%d", cam_id);
     rc = connect(socket_fd, &sock_addr.addr, sizeof(sock_addr.addr_un));
     if (0 != rc) {
-=======
-    sock_addr.sun_family = AF_UNIX;
-    snprintf(sock_addr.sun_path, UNIX_PATH_MAX, "/data/misc/camera/cam_socket%d", cam_id);
-    if((rc = connect(socket_fd, (struct sockaddr *) &sock_addr,
-      sizeof(sock_addr))) != 0) {
->>>>>>> 25bc109... QCamera2: Drop usage of USE_KK_CODE
       close(socket_fd);
       socket_fd = -1;
       CDBG_ERROR("%s: socket_fd=%d %s ", __func__, socket_fd, strerror(errno));
