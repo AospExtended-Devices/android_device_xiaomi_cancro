@@ -315,6 +315,24 @@
          rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max -->
     <string name="config_wifi_tcp_buffers" translatable="false">524288,2097152,4194304,262144,524288,1048576</string>
 
+    <!-- Enable Night display, which requires HWC 2.0. -->
+    <bool name="config_nightDisplayAvailable">true</bool>
+
+    <!-- Default mode to control how Night display is automatically activated.
+      One of the following values (see NightDisplayController.java):
+          0 - AUTO_MODE_DISABLED
+          1 - AUTO_MODE_CUSTOM
+          2 - AUTO_MODE_TWILIGHT -->
+    <integer name="config_defaultNightDisplayAutoMode">0</integer>
+ 
+    <!-- Default time when Night display is automatically activated.
+      Represented as milliseconds from midnight (e.g. 79200000 == 10pm). -->
+    <integer name="config_defaultNightDisplayCustomStartTime">79200000</integer>
+ 
+    <!-- Default time when Night display is automatically deactivated.
+      Represented as milliseconds from midnight (e.g. 21600000 == 6am). -->
+    <integer name="config_defaultNightDisplayCustomEndTime">21600000</integer>
+
     <!-- Whether WiFi display is supported by this device.
          There are many prerequisites for this feature to work correctly.
          Here are a few of them:
