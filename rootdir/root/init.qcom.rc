@@ -522,8 +522,9 @@ service rmt_storage /system/bin/rmt_storage
     class core
     user root
     group system wakelock
+    writepid /dev/cpuset/system-background/tasks
 
-on property:ro.boot.emmc=true
+on property:ro.boot.emmc=1
     start rmt_storage
 
 service rfs_access /system/bin/rfs_access
