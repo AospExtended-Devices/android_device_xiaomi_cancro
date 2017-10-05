@@ -176,6 +176,9 @@ BOARD_HARDWARE_CLASS += \
 # Real Battery Charging Current
 BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
 
+# No old RPC for prop
+TARGET_NO_RPC := true
+
 # GPS HAL lives here
 TARGET_GPS_HAL_PATH         := $(CANCRO_PATH)/gps
 TARGET_PROVIDES_GPS_LOC_API := true
