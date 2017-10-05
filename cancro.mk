@@ -41,7 +41,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     camera.msm8974 \
     libxml2 \
-    SnapdragonCamera
+    Camera2
+
+# Message
+PRODUCT_PACKAGES += \
+    messaging
+
+# Clock
+PRODUCT_PACKAGES += \
+    DeskClock
 
 # Widevine
 PRODUCT_PACKAGES += \
