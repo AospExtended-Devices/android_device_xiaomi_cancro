@@ -51,7 +51,6 @@ case "$target" in
         echo 1 > /sys/module/msm_pm/modes/cpu1/retention/idle_enabled
         echo 1 > /sys/module/msm_pm/modes/cpu2/retention/idle_enabled
         echo 1 > /sys/module/msm_pm/modes/cpu3/retention/idle_enabled
-        echo 1 > /sys/kernel/msm_thermal/enabled
         echo Y > /sys/module/clock_krait_8974/parameters/boost
         stop mpdecision
         echo 1 > /sys/devices/system/cpu/cpu1/online
@@ -196,7 +195,6 @@ case "$target" in
         echo 268800 > /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq
         chown -h system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
         chown -h system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-        echo 1 > /sys/kernel/msm_thermal/enabled
         chown -h root.system /sys/devices/system/cpu/mfreq
         chmod -h 220 /sys/devices/system/cpu/mfreq
         chown -h root.system /sys/devices/system/cpu/cpu1/online
