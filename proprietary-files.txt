@@ -383,12 +383,23 @@ bin/fm_qsoc_patches
 
 # GPS
 bin/loc_launcher
+bin/quipc_igsn
+bin/quipc_main
+lib/hw/gps.msm8974.so
 lib/libloc_api_v02.so
 lib/libloc_ds_api.so
+lib/libgps.utils.so
+lib/libloc_core.so
+lib/libloc_eng.so
 vendor/lib/hw/flp.default.so
 vendor/lib/libgeofence.so
 vendor/lib/libizat_core.so
 vendor/lib/liblbs_core.so
+vendor/lib/liblocationservice.so
+vendor/lib/libquipc_os_api.so
+vendor/lib/libquipc_ulp_adapter.so
+vendor/lib/libulp2.so
+vendor/lib/libxtadapter.so
 
 # Graphics - from onyx
 vendor/lib/egl/eglsubAndroid.so|b8a5790c5b4ba4cf0018c94066104610c821ed8e
