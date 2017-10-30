@@ -118,17 +118,15 @@ persist.fd.scron.timer=10000
 persist.radio.ignore_dom_time=5
 
 # Network tweaks
-net.tcp.buffersize.default=6144,87380,110208,6144,16384,110208
-net.tcp.buffersize.wifi=262144,524288,1048576,262144,524288,1048576
-net.tcp.buffersize.lte=262144,524288,3145728,262144,524288,3145728
-net.tcp.buffersize.hsdpa=6144,262144,1048576,6144,262144,1048576
-net.tcp.buffersize.hsupa=6144,262144,1048576,6144,262144,1048576
-net.tcp.buffersize.hspap=6144,262144,1048576,6144,262144,1048576
-net.tcp.buffersize.evdo=6144,262144,1048576,6144,262144,1048576
-net.tcp.buffersize.umts=6144,87380,110208,6144,16384,110208
-net.tcp.buffersize.hspa=6144,87380,262144,6144,16384,262144
-net.tcp.buffersize.gprs=6144,8760,11680,6144,8760,11680
-net.tcp.buffersize.edge=6144,26280,35040,6144,16384,35040
+net.tcp.buffersize.default=6144,87380,1048576,6144,87380,524288
+net.tcp.buffersize.wifi=524288,1048576,2097152,524288,1048576,2097152
+net.tcp.buffersize.umts=6144,87380,1048576,6144,87380,524288
+net.tcp.buffersize.gprs=6144,87380,1048576,6144,87380,524288
+net.tcp.buffersize.edge=6144,87380,524288,6144,16384,262144
+net.tcp.buffersize.hspa=6144,87380,524288,6144,16384,262144
+net.tcp.buffersize.lte=524288,1048576,2097152,524288,1048576,2097152
+net.tcp.buffersize.hsdpa=6144,87380,1048576,6144,87380,1048576
+net.tcp.buffersize.evdo_b=6144,87380,1048576,6144,87380,1048576
 ro.ril.hsxpa=2
 ro.ril.gprsclass=10
 ro.ril.hep=1
@@ -154,12 +152,13 @@ net.eth0.dns1=8.8.8.8
 net.eth0.dns2=8.8.4.4
 net.gprs.dns1=8.8.8.8
 net.gprs.dns2=8.8.4.4
+ro.config.hw_fast_dormancy=1
 
 # Battery tweaks
 ro.mot.eri.losalert.delay=1000
 ro.ril.disable.power.collapse=1
-pm.sleep_mode=3
-wifi.supplicant_scan_interval=180
+pm.sleep_mode=1
+wifi.supplicant_scan_interval=300
 power_supply.wakeup=enable
 power.saving.mode=1
 ro.config.hw_power_saving=1
