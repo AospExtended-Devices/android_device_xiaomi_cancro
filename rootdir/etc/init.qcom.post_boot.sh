@@ -71,19 +71,22 @@ case "$target" in
                 echo "interactive" > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
                 echo "interactive" > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
                 echo "interactive" > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
-                echo "20000 729600:60000 1036800:150000" > /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
-                echo 90 > /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
-                echo 729600 > /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
+                echo "0 1100000:40000 1400000:20000 1700000:0" > /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
+                echo 96 > /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
+                echo 925440 > /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
                 echo 0 > /sys/devices/system/cpu/cpufreq/interactive/boost
-                echo 0 > /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
-                echo "98 422400:40 729600:80 1036800:90" > /sys/devices/system/cpu/cpufreq/interactive/target_loads
-                echo 40000 > /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
+                echo 0 > /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration
+                echo 1 > /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
+                echo "0 268800:50 487680:35 925440:45 1253760:52 1363200:59 1582080:75 1691520:90 2019840:95 2348160:99" > /sys/devices/system/cpu/cpufreq/interactive/target_loads
+                echo 60000 > /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
                 echo 268800 > /sys/devices/system/cpu/cpufreq/interactive/sync_freq
-		echo 30000 > /sys/devices/system/cpu/cpufreq/interactive/timer_rate
-		echo 80000 > /sys/devices/system/cpu/cpufreq/interactive/timer_slack
+		echo 20000 > /sys/devices/system/cpu/cpufreq/interactive/timer_rate
+		echo 20000 > /sys/devices/system/cpu/cpufreq/interactive/timer_slack
+		echo 0 > /sys/devices/system/cpu/cpufreq/interactive/up_threshold_any_cpu_freq
+		echo 0 > /sys/devices/system/cpu/cpufreq/interactive/up_threshold_any_cpu_load
                 echo 20 > /sys/module/cpu_boost/parameters/boost_ms
                 echo 0 > /sys/module/cpu_boost/parameters/sync_threshold
-                echo 99000 > /sys/devices/system/cpu/cpufreq/interactive/sampling_down_factor
+                echo 1 > /sys/devices/system/cpu/cpufreq/interactive/sampling_down_factor
                 echo 0 > /sys/module/cpu_boost/parameters/input_boost_freq
                 echo 40 > /sys/module/cpu_boost/parameters/input_boost_ms
                 echo 1 > /sys/kernel/fast_charge/force_fast_charge
@@ -189,6 +192,20 @@ case "$target" in
                 echo 80 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_any_cpu_load
             ;;
         esac
+	echo 0 > /proc/sys/net/ipv4/tcp_timestamps
+	echo 1 > /proc/sys/net/ipv4/tcp_tw_reuse
+	echo 1 > /proc/sys/net/ipv4/tcp_sack
+	echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle
+	echo 1 > /proc/sys/net/ipv4/tcp_window_scaling
+	echo 5 > /proc/sys/net/ipv4/tcp_keepalive_probes
+	echo 30 > /proc/sys/net/ipv4/tcp_keepalive_intvl
+	echo 30 > /proc/sys/net/ipv4/tcp_fin_timeout
+	echo 404480 > /proc/sys/net/core/wmem_max
+	echo 404480 > /proc/sys/net/core/rmem_max
+	echo 256960 > /proc/sys/net/core/rmem_default
+	echo 256960 > /proc/sys/net/core/wmem_default
+	echo "4096,16384,404480" > /proc/sys/net/ipv4/tcp_wmem
+	echo "4096,87380,404480" > /proc/sys/net/ipv4/tcp_rmem
         echo 268800 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
         echo 268800 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
         echo 268800 > /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq
