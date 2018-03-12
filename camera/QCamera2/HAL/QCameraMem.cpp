@@ -1054,7 +1054,7 @@ camera_memory_t *QCameraStreamMemory::getMemory(uint32_t index,
 *==========================================================================*/
 native_handle_t *QCameraVideoMemory::updateNativeHandle(uint32_t index, bool metadata)
 {
-    if (index >= mMetaBufCount || (!metadata && index >= mBufferCount)) {
+    if (index >= mMetaBufCount || (!metadata && index >= (uint32_t)mBufferCount)) {
         return NULL;
     }
 
