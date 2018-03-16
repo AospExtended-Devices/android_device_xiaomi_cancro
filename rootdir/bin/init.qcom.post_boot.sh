@@ -84,10 +84,10 @@ case "$target" in
                 echo 1036800 > /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
                 echo 0 > /sys/devices/system/cpu/cpufreq/interactive/input_boost_freq
                 echo 1 > /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
-                echo "0 268800:50 422400:35 883200:45 1190400:52 1267200:59 1497600:75 1574400:90 1958400:95 2265600:99" > /sys/devices/system/cpu/cpufreq/interactive/target_loads
+                echo "0 268800:30 422400:35 883200:45 1190400:52 1267200:59 1497600:75 1574400:90 1958400:95 2265600:99" > /sys/devices/system/cpu/cpufreq/interactive/target_loads
                 echo 40000 > /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
                 echo 20 > /sys/module/cpu_boost/parameters/boost_ms
-                echo 0 > /sys/module/cpu_boost/parameters/sync_threshold
+                echo 1036800 > /sys/module/cpu_boost/parameters/sync_threshold
                 echo 100000 > /sys/devices/system/cpu/cpufreq/interactive/sampling_down_factor
                 echo 40 > /sys/module/cpu_boost/parameters/input_boost_ms
             ;;
