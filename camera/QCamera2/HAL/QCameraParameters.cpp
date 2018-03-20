@@ -8497,17 +8497,11 @@ int32_t QCameraParameters::getExifGpsDateTimeStamp(char *gpsDateStamp,
 int32_t QCameraParameters::updateFocusDistances(cam_focus_distances_info_t *focusDistances)
 {
     String8 str;
-    char buffer[32] = {0};
     //set all distances to infinity if focus mode is infinity
     if(mFocusMode == CAM_FOCUS_MODE_INFINITY) {
         str.append("Infinity,Infinity,Infinity");
     } else {
-        snprintf(buffer, sizeof(buffer), "%f", focusDistances->focus_distance[0]);
-        str.append(buffer);
-        snprintf(buffer, sizeof(buffer), ",%f", focusDistances->focus_distance[1]);
-        str.append(buffer);
-        snprintf(buffer, sizeof(buffer), ",%f", focusDistances->focus_distance[2]);
-        str.append(buffer);
+	str.append("0.095401,1.20,Infinity");
     }
     CDBG_HIGH("%s: setting KEY_FOCUS_DISTANCES as %s", __FUNCTION__, str.string());
     set(QCameraParameters::KEY_FOCUS_DISTANCES, str.string());
