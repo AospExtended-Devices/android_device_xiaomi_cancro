@@ -328,10 +328,10 @@
     <!-- Default LED off time for notification LED in milliseconds. -->
     <integer name="config_defaultNotificationLedOff">2000</integer>
 
-    <!-- Buttons brightness -->
+    <!-- Buttons brightness 
     <integer name="config_buttonBrightnessSettingDefault">255</integer>
     <bool name="config_deviceHasVariableButtonBrightness">true</bool>
-    <bool name="config_deviceHasButtonBacklight">true</bool>
+    <bool name="config_deviceHasButtonBacklight">true</bool>-->
 
     <!-- Operating voltage for bluetooth controller. 0 by default-->
     <integer translatable="false" name="config_bluetooth_operating_voltage_mv">3700</integer>
